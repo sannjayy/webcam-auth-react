@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Webcam from "react-webcam";
+import Loader from "react-loader-spinner";
 
 // const WebcamComponent = () => <Webcam />;
 
@@ -17,12 +18,14 @@ export const WebcamCapture = () => {
     const [similarity , setSimilarity] = useState('');
     const [confidence , setConfidence] = useState('');
     const [error , setError] = useState('');
+    const [loading , isLoading] = useState(false);
 
     const webcamRef = React.useRef(null);  
     const submitForm = async (e) => {
         e.preventDefault()
         // console.log('username', username)
         // console.log('image : ',image);
+        isLoading(true)
         const body = JSON.stringify({
             'username':username,
             'image':image
@@ -46,9 +49,12 @@ export const WebcamCapture = () => {
             setUsername('');
             setImage('')
             setError('')
+            isLoading(false)
         } else {
             setUser({})
+            isLoading(false)
             setError('Authentication failed')
+
         }        
     }
 
@@ -96,8 +102,19 @@ export const WebcamCapture = () => {
                             </div>
                         </div>
                         {/* Webcam End */}
-                        <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
-                        <button type="submit" id="login-button" onClick={(e) => submitForm(e)}>Login</button>
+                        
+                        {loading ? 
+                            <Loader
+                                type="ThreeDots"
+                                color="#350de9"
+                                height={100}
+                                width={50}
+                            /> :
+                        <>
+                            <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <button type="submit" id="login-button" onClick={(e) => submitForm(e)}>Login</button>
+                        </>
+                        }
                     </form>
                 </div>                
             </div>
