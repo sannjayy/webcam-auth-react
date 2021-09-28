@@ -12,7 +12,6 @@ const videoConstraints = {
 export const WebcamCapture = () => {
 
     const [image,setImage]=useState('');
-    const [blob,setBlob]=useState('');
     const [username, setUsername] = useState('');
     const [user, setUser] = useState({});
     const [similarity , setSimilarity] = useState('');
@@ -55,12 +54,9 @@ export const WebcamCapture = () => {
 
     const capture = React.useCallback(
         async () => {
-        const imageSrc = webcamRef.current.getScreenshot();
-        const blob = await fetch(imageSrc).then((res) => res.blob());
-        const blobUrl = URL.createObjectURL(blob);
-        setBlob(blob)
-        setImage(imageSrc)
-        });
+            const imageSrc = webcamRef.current.getScreenshot();
+            setImage(imageSrc)
+        },  []);
 
 
     return (

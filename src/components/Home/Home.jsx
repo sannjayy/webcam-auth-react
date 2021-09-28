@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './homeStyles.css'
-import { WebcamCapture} from '../Webcam/Webcam'
+import { WebcamCapture } from '../Webcam/Webcam'
 
 
 const Home = () => {
-
-    
-
 
     return (
         <WebcamCapture />
