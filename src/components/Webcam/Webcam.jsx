@@ -28,7 +28,7 @@ export const WebcamCapture = () => {
             'image':image
         });
 
-        const apiRes = await fetch(`http://localhost:8000/auth`, {
+        const apiRes = await fetch(`https://api-yami.herokuapp.com/auth`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
