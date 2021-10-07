@@ -23,15 +23,13 @@ export const WebcamCapture = () => {
     const webcamRef = React.useRef(null);  
     const submitForm = async (e) => {
         e.preventDefault()
-        // console.log('username', username)
-        // console.log('image : ',image);
         isLoading(true)
         const body = JSON.stringify({
             'username':username,
             'image':image
         });
 
-        const apiRes = await fetch(`https://api-yami.herokuapp.com/auth`, {
+        const apiRes = await fetch(`http://localhost:8000/auth`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
