@@ -9,5 +9,5 @@ If You Have Further Queries You Can E-mail Me.
 
 # ============================== #
 Created by Sanjay Sikdar
-Website : www.znas.in
-Email : znasofficial@gmail.com
+Website : www.sanjaysikdar.dev
+Email : me@sanjaysikdar.dev
